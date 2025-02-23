@@ -1,0 +1,18 @@
+body {
+    background-color: #eeb06a;
+}
+
+.box {
+    background-color: #4b125c;
+    padding: 25px;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}

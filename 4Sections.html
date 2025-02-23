@@ -1,0 +1,66 @@
+<html lang="en">
+    <head>
+        <title>4 Sections</title>
+        <link rel="stylesheet" href="4Sections.css">
+    </head>
+
+    <body>
+        <h1>INST377 - Lab 4</h1>
+
+        <div class="container">
+            <form class="box" name="nameForm" onsubmit="return nameAlert()">
+                <label for="Name">Name</label>
+                <input id="Name" type="text" required>
+                <button type="submit">Alert Me</button>
+            </form>
+
+            <div class="box">
+                <button onclick="changeColor()">Change Color</button>
+            </div>
+
+            <form class="box" name="textForm" onsubmit=" return textTester()">
+                <label for="Text">Text Tester</label>
+                <input id="Text" name="Text" type="text">
+                <button type="submit">Validate Text</button>
+            </form>
+
+            <div class="box" onclick="addText()">
+                <button>Add Text</button>
+            </div>
+        </div>
+
+        <!--Javascript Code-->
+        <script type="text/javascript">
+            function changeColor() {
+                console.log('Attempting to change color of website, current color is:', getComputedStyle(document.body).backgroundColor);
+                if(document.body.style.backgroundColor === "lightblue") {
+                    document.body.style.backgroundColor = "#eeb06a";
+                } else {
+                    document.body.style.backgroundColor = "lightblue";
+                }
+                console.log('Successfully changed background color to: ', getComputedStyle(document.body).backgroundColor);
+            }
+
+
+            function nameAlert() {
+                alert(`Hello ${document.nameForm.Name.value}!`);
+                return false;
+            }
+            function textTester() {
+                const validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                const text = document.textForm.Text.value;
+                console.log('Validating text:', text);
+                if(validation.test(document.textForm.Text.value)) {
+                    alert('This text contains a special character');
+                } else{
+                    console.log(`${document.textForm.Text.value} is valid`)
+                }
+                return false;
+            }
+
+            function addText() {
+                document.querySelector('h1').textContent += " - Adding Text";
+            }
+        </script>
+    </body>
+</html>
